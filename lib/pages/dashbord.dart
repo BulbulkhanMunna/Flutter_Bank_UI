@@ -1,5 +1,13 @@
+import 'package:bank_app/pages/add_new_account.dart';
+import 'package:bank_app/pages/card.dart';
+import 'package:bank_app/pages/fund_Wallet.dart';
+
+import 'package:bank_app/pages/setting.dart';
+import 'package:bank_app/pages/wallet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/route_manager.dart';
 
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
@@ -744,8 +752,6 @@ class _DashboardState extends State<Dashboard> {
         });
   }
 
-  int _currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1219,7 +1225,8 @@ class _DashboardState extends State<Dashboard> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               GestureDetector(
-                                onTap: () => alertDialog3(),
+                                onTap: () => Get.to(ADD_New_Account()),
+                                // Get.to(FUND_WALLET()),
                                 child: Image.asset(
                                   'images/inputt.png',
                                   width: 35,
@@ -1385,27 +1392,11 @@ class _DashboardState extends State<Dashboard> {
                     )),
               ),
             ],
-          )
-
-          //_pages[_currentIndex],
+          ),
 
           //WALLET,MONEY,WITHDRAW ENDS..........................................................................................
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _currentIndex,
-          onTap: (value) {
-            _currentIndex = value;
-          },
-          items: [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.dashboard_customize_outlined),
-                label: 'Dashboard'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.wallet_giftcard_outlined), label: 'Wallet'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.credit_card), label: 'Cards'),
-          ]),
     );
   }
 }

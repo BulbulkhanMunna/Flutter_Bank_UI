@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/route_manager.dart';
 
 class OnBoarding extends StatefulWidget {
   @override
@@ -99,8 +101,7 @@ class _OnBoardingState extends State<OnBoarding> {
                             _currentIndex += 1;
                           });
                         } else {
-                          Navigator.push(context,
-                              CupertinoPageRoute(builder: (_) => LogIn()));
+                          Get.to(LogIn());
                         }
                       },
                       child: Text(

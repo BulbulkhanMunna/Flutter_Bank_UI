@@ -1,8 +1,12 @@
+import 'package:bank_app/pages/bottom_nav.dart';
+import 'package:bank_app/pages/dashbord.dart';
 import 'package:bank_app/pages/forgot_password.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/route_manager.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({super.key});
@@ -59,7 +63,7 @@ class _LogInState extends State<LogIn> {
               SizedBox(
                 height: 10,
               ),
-              TextField(
+              TextFormField(
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     prefixIcon: Icon(
@@ -88,7 +92,7 @@ class _LogInState extends State<LogIn> {
               SizedBox(
                 height: 10,
               ),
-              TextField(
+              TextFormField(
                 obscureText: true,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
@@ -104,12 +108,18 @@ class _LogInState extends State<LogIn> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'Forgot Password?',
-                    style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.green),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          CupertinoPageRoute(builder: (_) => ForgotPassword()));
+                    },
+                    child: Text(
+                      'Forgot Password?',
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.green),
+                    ),
                   ),
                 ],
               ),
@@ -119,10 +129,11 @@ class _LogInState extends State<LogIn> {
               SizedBox(
                 width: 400,
                 height: 65,
-                child: ElevatedButton(onPressed: () {
-                   Navigator.push(context,
-                              CupertinoPageRoute(builder: (_) => ForgotPassword()));
-                }, child: Text('Login')),
+                child: ElevatedButton(
+                    onPressed: () {
+                      Get.to(BOTTOM_NAV());
+                    },
+                    child: Text('Login')),
               ),
               SizedBox(
                 height: 20,

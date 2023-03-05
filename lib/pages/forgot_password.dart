@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/route_manager.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
@@ -18,12 +20,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
         builder: (_) {
           return CupertinoAlertDialog(
             content: Column(
-              
               children: [
                 Container(
-                    decoration: BoxDecoration(
-                      
-                    ),
+                    decoration: BoxDecoration(),
                     height: 400,
                     child: Column(
                       children: [
@@ -75,8 +74,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       child: Icon(Icons.arrow_back),
                       backgroundColor: Colors.green,
                       onPressed: () {
-                        Navigator.push(context,
-                            CupertinoPageRoute(builder: (_) => LogIn()));
+                        Get.to(LogIn());
                       }),
                 ],
               ),
